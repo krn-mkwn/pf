@@ -97,7 +97,7 @@ document.getElementById("contactForm").addEventListener("submit", async function
     const message = document.getElementById("Message").value;
 
     try {
-        const response = await fetch("http://localhost:3000/send-email", {
+        const response = await fetch("https://portfolio-3sqm.onrender.com", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
