@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Expanded Portfolio Website - Dark Theme</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- AOS CSS -->
+    <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Global Styles */
+        body {
+            background-color: #121212;
+            color: #e0e0e0;
+            font-family: 'Arial', sans-serif;
+            scroll-behavior: smooth;
+        }
+        a, a:hover {
+            color: #00e6e6;
+            text-decoration: none;
+        }
+        .btn-primary {
+            background-color: #00e6e6;
+            border: none;
+            transition: transform 0.3s ease, background-color 0.3s ease;
+        }
+        .btn-primary:hover {
+            background-color: #000000;
+            transform: scale(1.1);
+        }
+
+        /* Navbar */
+       
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            background: linear-gradient(135deg, #2a2a72, #009ffd);
+            /* background-color: #000000; */
+            color: #ffffff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+        .hero h1 {
+            font-size: 3rem;
+            font-weight: bold;
+            animation: fadeInDown 1.5s ease-in-out;
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Section Headings */
+        section h2 {
+            color: #00e6e6;
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        /* Portfolio Cards */
+        .portfolio .card {
+            background-color: #1e1e1e;
+            border: none;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .portfolio .card:hover {
+            transform: scale(1.05);
+            box-shadow: 0px 4px 15px rgba(0, 230, 230, 0.2);
+        }
+
+        /* Skills Section */
+        .skills .skill-bar {
+            background-color: #333;
+            border-radius: 25px;
+            overflow: hidden;
+            margin-bottom: 15px;
+        }
+        .skills .skill-bar .progress {
+            background-color: #00e6e6;
+            height: 25px;
+            line-height: 25px;
+            color: #121212;
+            padding: 0 10px;
+            font-size: 0.9rem;
+            font-weight: bold;
+        }
+
+        /* Testimonials Section */
+        .testimonials {
+            background-color: #1e1e1e;
+            padding: 40px;
+            border-radius: 15px;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #1e1e1e;
+            color: #e0e0e0;
+        }
+        footer p {
+            margin: 0;
+        }
+
+        .myPhoto{
+            height: 330px;
+            width: 300px;
+            border-radius: 50%;
+            object-fit: cover;
+            border-top: 10px;
+            border-left: 5px solid #00e6e6;
+            border-bottom: 5px solid #5cabab;
+            margin-bottom: 20px;
+           
+
+            
+            
+        }
+
+        .success-message, .error-message {
+         display: none; /* Ensure they are hidden initially */
+          margin-top: 15px;
+        }
+
+
+
+
+        .back-to-hero {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background: linear-gradient(135deg, #066486, #eaafc8);
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 50px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    text-decoration: none;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: none;   
+    /* initial */
+    z-index: 1000;
+}
+
+.back-to-hero:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-dark custom-navbar">
+    <div class="container">
+        <a class="navbar-brand" href="#">Portfolio</a>
+        <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarNav"
+            aria-controls="navbarNav"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+        >
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item">
+                    <a class="nav-link active" href="#home">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#about">About</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#skills">skills</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#projects">Projects</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#contact">Contact</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+    <!-- Hero Section -->
+<!-- Hero Section -->
+<section class="hero" id="hero">
+    <div class="hero-bg"></div>
+    <div class="container text-center">
+        <img src="photos/myPhoto.jpg"  class="myPhoto" alt="myPhoto">
+        <h1 class="hero-title">
+            <span class="highlight">Hello, I'm <br>Karan Makwana</span>
+        </h1>
+        <p class="hero-subtitle">A <span class="highlight">Computer Engineer</span> crafting digital experiences.</p>
+        <div class="mt-4">
+            <a href="#projects" class="btn btn-primary btn-lg me-2">My Work</a>
+            <a href="#contact" class="btn btn-outline-light btn-lg">Contact Me</a>
+        </div>
+    </div>
+</section>
+
+
+<a href="#hero" class="btn btn-primary btn-lg back-to-hero">Back to top</a>
+
+
+    <!-- About Section -->
+    
+
+<!-- about section -->
+
+<section id="about" class="py-5" style="background: linear-gradient(135deg, #000000, #183058); color: #ffffff;">
+    <div class="container">
+        <div class="row align-items-center">
+            <!-- Text Section -->
+            <div class="col-md-6">
+                <h2 class="mb-4">About Me</h2>
+                <p class="lead">
+                    Hello! I'm Karan Makwana, a passionate Computer Engineer specializing in Web Devlopment. I love creating unique and impactful projects.                </p>
+                <p>
+                    I am a dedicated computer engineer with a passion for designing, developing, and optimizing technology solutions that solve real-world problems. With a strong foundation in computer science, programming, and systems engineering, I thrive on tackling complex technical challenges and delivering innovative results.                </p>
+                    <p>I value collaboration and lifelong learning. Whether working within a team or independently, I am committed to staying current with the latest advancements in the field and applying them effectively in my work.</p>
+                <a href="#projects" class="btn btn-outline-light btn-lg mt-3">View My Projects</a>
+            </div>
+
+            <!-- Decorative Section -->
+            <div class="col-md-6 text-center">
+                <div class="about-decor">
+                    <div class="circle-bg"></div>
+                    <div class="circle-inner">
+                        <i class="bi bi-code-slash" style="font-size: 5rem;"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+
+<!-- Education Section -->
+<section id="education" class="education-section py-5">
+    <div class="container">
+        <h2 class="section-title text-center  mb-5" data-aos="fade-up" id="edu">Education</h2>
+        <div class="timeline">
+            <!-- School -->
+            <div class="timeline-item" data-aos="fade-right">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <h3 class="timeline-title">High School</h3>
+                    <p class="timeline-subtitle">Dholakiya Schools, Rajkot</p>
+                    <p class="timeline-date">2019 - 2021</p>
+                    <p class="timeline-description">11th - 12th with 86.8 %</p>
+                </div>
+            </div>
+            <!-- College -->
+            <div class="timeline-item" data-aos="fade-left">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <h3 class="timeline-title">College</h3>
+                    <p class="timeline-subtitle">VVP Engineering College, Rajkot</p>
+                    <p class="timeline-date">2021 - 2025</p>
+                    <p class="timeline-description">bechlors of engineering in computer engineering with 8.48 CGPA</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+    <!-- Skills Section -->
+    <section id="skills" class="py-5">
+        <div class="container">
+            <h2 class="text-center">My Skills</h2>
+            <div class="skills mt-4">
+                <div class="skill-bar" data-aos="fade-right">
+                    <div class="progress" style="width: 90%;">HTML & CSS - 90%</div>
+                </div>
+                <div class="skill-bar" data-aos="fade-right">
+                    <div class="progress" style="width: 70%;">JavaScript - 70%</div>
+                </div>
+                <div class="skill-bar" data-aos="fade-right">
+                    <div class="progress" style="width: 55%;">node.js - 55%</div>
+                </div>
+                <div class="skill-bar" data-aos="fade-right">
+                    <div class="progress" style="width: 65%;">java - 65%</div>
+                </div>
+                <div class="skill-bar" data-aos="fade-right">
+                    <div class="progress" style="width: 55%;">SQL - 55%</div>
+                </div>
+                <div class="skill-bar" data-aos="fade-right">
+                    <div class="progress" style="width: 45%;">other languages - 45%</div>
+                </div>
+                
+            </div>
+        </div>
+    </section>
+
+     <!-- project section -->
+    <section id="projects" class="projects-section py-5 bg-dark text-light">
+        <div class="container">
+            <h2 class="section-title text-center text mb-5" data-aos="fade-up">My Projects</h2>
+            <div class="row" id="projects-container">
+                <!-- Projects will be dynamically injected here by JavaScript -->
+            </div>
+        </div>
+    </section>
+    
+    <!-- Contact Section -->
+    <section id="contact" class="py-5">
+        <div class="container text-center" data-aos="fade-up">
+            <h2>Contact Me</h2>
+            <form class="mt-4" id="contactForm">
+                <div class="mb-3">
+                    <input type="text" class="form-control" id="name" placeholder="Your Name" required>
+                </div>
+                <div class="mb-3">
+                    <input type="email" class="form-control" id="email" placeholder="Your Email" required>
+                </div>
+                <div class="mb-3">
+                    <input type="subject" class="form-control" id="subject" placeholder="subject" required>
+                </div>
+                <div class="mb-3">
+                    <textarea class="form-control" rows="5" id="Message" placeholder="Your Message" required></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary">Send Message</button>
+               
+            </form>
+            <div class="alert alert-success success-message">Your message has been sent successfully!</div>
+            <div class="alert alert-danger error-message">There was an error sending your message. Please try again.</div>
+        </div>
+    </section>
+
+    <div class="contact-info">
+        <div class="contact-info-item">
+            <i class="bi bi-telephone-fill"></i>
+            <p>+91 9427381103</p>
+        </div>
+        <div class="contact-info-item">
+            <i class="bi bi-envelope-fill"></i>
+            <p>karanmakwana0203@gmail.com</p>
+        </div>
+        <div class="contact-info-item">
+            <i class="bi bi-geo-alt-fill"></i>
+            <p>balvi krupa, jayant kg mainroad, rajkot, gujrat</p>
+        </div>
+    </div>
+
+
+
+
+
+
+    <!-- Footer -->
+    <footer class="text-center py-3">
+        <p>&copy; 2024 My Portfolio. All Rights Reserved.</p>
+    </footer>
+
+    <!-- Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- AOS JS -->
+    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+
+    <script src="script.js"></script>
+    <script>
+        AOS.init();
+          </script>
+
+</body>
+</html>
