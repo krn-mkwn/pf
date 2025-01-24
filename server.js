@@ -3,7 +3,7 @@ const nodemailer = require("nodemailer");
 const cors = require("cors");
 
 const app = express();
-app.use(cors());
+app.use(cors({ origin : 'https://krn-mkwn.github.io/pf/'}));
 app.use(express.json()); // For parsing application/json
 
 // Route to send email
